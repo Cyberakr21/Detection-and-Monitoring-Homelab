@@ -10,8 +10,6 @@ This project demonstrates the setup of a comprehensive cybersecurity homelab env
 ## 1. Installing VMware Workstation as the Hypervisor
 VMware Workstation serves as the foundation for hosting all virtual machines in this lab. It allows for the creation of isolated virtual environments for testing and learning purposes.
 
-### steps
-
 ## 2. Configuring pfSense Firewall for Network Segmentation & Security
 pfSense is configured as a virtual router and firewall to isolate and secure the network. It enables segmentation of the lab environment into different subnets for better control and monitoring.
 
@@ -22,7 +20,7 @@ Security Onion is deployed as an all-in-one solution for intrusion detection, se
 Kali Linux is set up as a penetration testing and attack simulation machine. It includes tools for vulnerability scanning, exploitation, and post-exploitation activities.
 
 ## 5. Configuring a Windows Server as a Domain Controller
-A Windows Server is configured to act as a Domain Controller for managing user authentication and group policies. This setup mimics a real-world enterprise environment.
+A Windows Server 2025 is configured to act as a Domain Controller for managing user authentication and group policies. This setup mimics a real-world enterprise environment.
 
 ## 6. Configuring Windows Desktops
 Windows desktop virtual machines are added to the domain for testing user access and security policies. These machines simulate end-user systems in a corporate network.

@@ -3,6 +3,10 @@
 
 This project demonstrates the setup of a comprehensive cybersecurity homelab environment using VMware Workstation as the hypervisor. The lab includes network segmentation, security monitoring, intrusion detection, and attack simulation. Below are the key components of the setup:
 
+## Network Diagram
+![Network Diagram](C:\Users\austi\Downloads\Homelab\homelab Detection.jpg)
+
+
 ## 1. Installing VMware Workstation as the Hypervisor
 VMware Workstation serves as the foundation for hosting all virtual machines in this lab. It allows for the creation of isolated virtual environments for testing and learning purposes.
 

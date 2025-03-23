@@ -33,5 +33,4 @@ Each section of the lab setup is documented with step-by-step instructions, scre
 
 ## Future Enhancements
 - Adding more attack scenarios and detection use cases.
-- Integrating additional tools like ELK Stack or Graylog for log management.
 - Expanding the lab to include cloud-based components.

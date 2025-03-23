@@ -10,6 +10,8 @@ This project demonstrates the setup of a comprehensive cybersecurity homelab env
 ## 1. Installing VMware Workstation as the Hypervisor
 VMware Workstation serves as the foundation for hosting all virtual machines in this lab. It allows for the creation of isolated virtual environments for testing and learning purposes.
 
+### steps
+
 ## 2. Configuring pfSense Firewall for Network Segmentation & Security
 pfSense is configured as a virtual router and firewall to isolate and secure the network. It enables segmentation of the lab environment into different subnets for better control and monitoring.
 

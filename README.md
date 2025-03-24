@@ -120,14 +120,14 @@ When asked about reverting to HTTP as the web configurator, click "y" to access 
 
 ![image alt](https://github.com/Cyberakr21/homelab-2-secuirty-onion-IDS-images/blob/10d39700f4fd1505d3cff3838ad9a56708f514e5/27%20ip%20dhcp%20range%20for%20this%20lan%20for%20my%20lan%20kali%20inux%20to%20access%20the%20pfsense%20GUI.jpg)
 
-    Configuration above is all the things you will need to assign an IP address to all the other interfaces. As for        this one, it's em2=192.168.2.1
+    Configuration above is all the things you will need to assign an IP address to all the other interfaces. As for this one, it's em2=192.168.2.1
     The rest of the IP addresses 3rd Octet will be increased by 1:
     em3=192.168.3.1
     em4=192.168.4.1
     em5=192.168.5.1
     em6=192.168.6.1
 
-    N.B Click "n" for the rest of the IP configs when asked to about reverting to HTTP as the web configurator             protocol like the example below:
+    N.B Click "n" for the rest of the IP configs when asked to about reverting to HTTP as the web configurator protocol like the example below:
 
 Example of em2:
 

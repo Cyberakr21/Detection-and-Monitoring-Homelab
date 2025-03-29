@@ -148,7 +148,7 @@ Recommended installation process:
 
 In VMware Workstation:
 
-Click on "Create a New Virtual Machine" to start the setup process --> Select the "Typical (recommended)" configuration type --> click "Next" --> Choose the "Installer disc image file (iso)" option and browse to the location of the pfSense installation ISO file.
+Click on "Create a New Virtual Machine" to start the setup process --> Select the "Typical (recommended)" configuration type --> click "Next" --> Choose the "Installer disc image file (iso)" option and browse to the location of the security onion installation ISO file.
 
 Important hardware configs for Span/sniffing port and pfSense interface port:
 
@@ -242,6 +242,16 @@ If you want to install the ubuntu machine that can manage the Security onion, yo
 
 ## 4. Configuring Kali Linux as an Attack Machine
 Kali Linux is set up as a penetration testing and attack simulation machine. It includes tools for vulnerability scanning, exploitation, and post-exploitation activities.
+
+[Download the Kali Linux ISO from here](https://www.kali.org/get-kali/#kali-virtual-machines)
+
+[Click here for Kali machine guided installation](https://www.geeksforgeeks.org/how-to-install-and-run-vmware-tool-in-linux/)
+
+### Virtual Machine Configuration
+
+Click on "Create a New Virtual Machine" to start the setup process --> Select the "Typical (recommended)" configuration type --> click "Next" --> Choose the "Installer disc image file (iso)" option and browse to the location of the pfSense installation ISO file.
+
+
 
 ## 5. Configuring a Windows Server as a Domain Controller
 A Windows Server 2025 is configured to act as a Domain Controller for managing user authentication and group policies. This setup mimics a real-world enterprise environment.

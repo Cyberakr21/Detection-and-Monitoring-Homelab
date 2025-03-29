@@ -140,7 +140,23 @@ All the IP addresses configured:
 ![image alt](https://github.com/Cyberakr21/homelab-2-secuirty-onion-IDS-images/blob/10d39700f4fd1505d3cff3838ad9a56708f514e5/30%20all%20interfaces%20configured.jpg)
 
 ## 3. Configuring Security Onion
-Security Onion is deployed as an all-in-one solution for intrusion detection, security monitoring, and log management. It provides tools like Zeek, Suricata, and Kibana for analyzing network traffic and detecting threats.
+Security Onion is deployed as an all-in-one solution for intrusion detection, security monitoring, and log management.
+
+[Download Security Onion ISO file from here](https://github.com/Security-Onion-Solutions/securityonion/blob/master/VERIFY_ISO.md)
+
+Recommended installation process:
+
+![image alt]()
+
+In VMware Workstation:
+
+Click on "Create a New Virtual Machine" to start the setup process --> Select the "Typical (recommended)" configuration type --> click "Next" --> Choose the "Installer disc image file (iso)" option and browse to the location of the pfSense installation ISO file.
+
+
+
+### Steps to configure Security Onion
+
+
 
 ## 4. Configuring Kali Linux as an Attack Machine
 Kali Linux is set up as a penetration testing and attack simulation machine. It includes tools for vulnerability scanning, exploitation, and post-exploitation activities.

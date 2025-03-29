@@ -249,9 +249,104 @@ Kali Linux is set up as a penetration testing and attack simulation machine. It 
 
 ### Virtual Machine Configuration
 
-Click on "Create a New Virtual Machine" to start the setup process --> Select the "Typical (recommended)" configuration type --> click "Next" --> Choose the "Installer disc image file (iso)" option and browse to the location of the pfSense installation ISO file.
+Since you’re downloading the VM file, all you’ll need to do is click on the .vmx file from the Kali Folder you downloaded, and it will automatically load up the default Kali image in VMware.
 
+![image alt](https://github.com/Cyberakr21/3-homelab-Kali-attacker--images/blob/7b5c5c28d5ef99b1a57fcb914c44861051ee6b6f/1%20installation.jpg)
 
+When you power on the Kali Machine, It will have a default login account:
+
+    Username: kali
+    password: kali
+
+Once you log in, you can change the password by going to the terminal and typing  this command:
+
+![image alt](https://github.com/Cyberakr21/3-homelab-Kali-attacker--images/blob/7b5c5c28d5ef99b1a57fcb914c44861051ee6b6f/2%20change%20password%20with%20command.jpg)
+
+    command:
+    passwd
+
+The Kali machine is ready for use after configuring your own password.
+
+With the Kali machine set up, the pfsense WebConfigurator can be accessed in order to make some changes to the pfsense interface and firewall rules. Navigate to the web browser and search for 192.168.1.1
+
+![image alt](https://github.com/Cyberakr21/3-homelab-Kali-attacker--images/blob/7b5c5c28d5ef99b1a57fcb914c44861051ee6b6f/3%20pf%20sense%20LAN%20address%20used%20to%20reach%20webconfig%20em2.jpg)
+
+Accept the risk when trying to access the web interface:
+
+![image alt](https://github.com/Cyberakr21/3-homelab-Kali-attacker--images/blob/7b5c5c28d5ef99b1a57fcb914c44861051ee6b6f/accept%20risk%20and%20Lan%20is%20what%20you%20type%20to%20reach%20the%20pfsense.jpg)
+
+pfSense login screen:
+
+![image alt](https://github.com/Cyberakr21/3-homelab-Kali-attacker--images/blob/7b5c5c28d5ef99b1a57fcb914c44861051ee6b6f/4%20default%20login%20user%20name%20admin%20and%20pfsense.jpg)
+
+    default pfSense login:
+    Username: admin
+    Password: pfsense
+
+Once in pfsense, follow the this guide:
+
+![image alt](https://github.com/Cyberakr21/3-homelab-Kali-attacker--images/blob/7b5c5c28d5ef99b1a57fcb914c44861051ee6b6f/5%20click%20next.jpg)
+
+    Click"Next"
+
+Configure the DNS using Google's primary and secondary DNS:
+
+![image alt](https://github.com/Cyberakr21/3-homelab-Kali-attacker--images/blob/7b5c5c28d5ef99b1a57fcb914c44861051ee6b6f/6%20dns%20setup%20google.jpg)
+
+    Click"Next"
+
+Select your timezone:
+
+![image alt](https://github.com/Cyberakr21/3-homelab-Kali-attacker--images/blob/7b5c5c28d5ef99b1a57fcb914c44861051ee6b6f/7%20set%20your%20time%20zon.jpg)
+
+    Click"Next"
+
+I am allowing private addresses just to get great alerts for the log collection later:
+
+![image alt](https://github.com/Cyberakr21/3-homelab-Kali-attacker--images/blob/7b5c5c28d5ef99b1a57fcb914c44861051ee6b6f/8%20after%20seeting%20time%20zone%2C%20personal%20choice%20deselect%20to%20get%20more%20alerts%20since%20this%20is%20a%20sandbox%20not%20interproce.jpg)
+
+    Click"Next"
+
+Set up a new password:
+
+![image alt](https://github.com/Cyberakr21/3-homelab-Kali-attacker--images/blob/7b5c5c28d5ef99b1a57fcb914c44861051ee6b6f/9%20set%20up%20your%20new%20password.jpg)
+
+    Click"Next"
+    Next, Click"finish" 
+    Then click the browser"reload button to finalize the configuration"
+
+At this point, pfsense Wizard is complete and now we will be making changes to the Interfaces in pfsense settings.
+
+Click on interfaces to get:
+
+![image alt](https://github.com/Cyberakr21/3-homelab-Kali-attacker--images/blob/7b5c5c28d5ef99b1a57fcb914c44861051ee6b6f/111%20Check%20if%20this%20looks%20like%20what%20you%20have%20on%20pf%20sense.jpg)
+
+The next step is to change the names of the interfaces to reflect our network diagram by click on each interfaces that need to be changed:
+
+interface LAN(em1) example:
+
+![image alt](https://github.com/Cyberakr21/3-homelab-Kali-attacker--images/blob/7b5c5c28d5ef99b1a57fcb914c44861051ee6b6f/11%20next%20step%20is%20to%20change%20the%20names%20to%20reflect%20the%20device%20that%20uses%20it.jpg)
+
+When making edits to the interfaces, remember to disable static IPv4 for this interface e.g:
+
+![image alt](https://github.com/Cyberakr21/3-homelab-Kali-attacker--images/blob/7b5c5c28d5ef99b1a57fcb914c44861051ee6b6f/12%20remember%20to%20enable%20the%20SPAN%20port%20without%20a%20static%20ip.jpg)
+
+Renamed interfaces:
+
+![image alt](https://github.com/Cyberakr21/3-homelab-Kali-attacker--images/blob/7b5c5c28d5ef99b1a57fcb914c44861051ee6b6f/13%20renamed%20pf%20interfaces.jpg)
+
+Next, we will be configuring the Bridge, which will be used for your client/victim network acting as the firewall between the clients and pfsense so that pf sense can collect logs. Follow these steps to configure this:
+
+![image alt](https://github.com/Cyberakr21/3-homelab-Kali-attacker--images/blob/7b5c5c28d5ef99b1a57fcb914c44861051ee6b6f/15%20member%20is%20Client%20net%20include%20span%20port%20setup.jpg)
+
+Next, click firewall to configure ACL(Acess control list):
+
+![image alt](https://github.com/Cyberakr21/3-homelab-Kali-attacker--images/blob/7b5c5c28d5ef99b1a57fcb914c44861051ee6b6f/16%20next%20click%20firewall%20to%20configure%20ACL.jpg)
+
+        Cofigure to allow TCP traffic
+        Then click "save"
+
+This is the majority of the firewall configuration needed for pfsense, and you can do more I you want.
 
 ## 5. Configuring a Windows Server as a Domain Controller
 A Windows Server 2025 is configured to act as a Domain Controller for managing user authentication and group policies. This setup mimics a real-world enterprise environment.

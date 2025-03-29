@@ -146,7 +146,7 @@ Security Onion is deployed as an all-in-one solution for intrusion detection, se
 
 Recommended installation process:
 
-![image alt]()
+![image alt](https://github.com/Cyberakr21/2-homelab-security-onion--images-/blob/c1bb6600e8966782087a0d561903c4aa4f51e15c/3%20installation%20process.jpg)
 
 In VMware Workstation:
 

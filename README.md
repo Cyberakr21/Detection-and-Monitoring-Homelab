@@ -19,7 +19,7 @@ Click Download Fusion or Workstation Next ---> Create account ---> Login and Cli
 [How to Install Vmware Workstation](https://medium.com/analytics-vidhya/step-by-step-install-vmware-workstation-on-windows-1027abc3fadc)
 
 ## 2. Configuring pfSense Firewall for Network Segmentation & Security
-pfSense is configured as a virtual router and firewall to isolate and secure the network. It enables segmentation of the lab environment into different subnets for better control and monitoring.
+pfSense is configured as a virtual router and firewall to isolate and secure the network. It enables the segmentation of the lab environment into different subnets for better control and monitoring.
 
 ### Steps to configure pfSense
 
@@ -37,7 +37,7 @@ Proceed with the default settings for the virtual machine configuration and add 
 
 ### Configure the pfSense Virtual Machine
 
-Once the virtual machine is created, power it on and you will see the pfSense welcome screen:
+Once the virtual machine is created, power it on, and you will see the pfSense welcome screen:
 
 ![image alt](https://github.com/Cyberakr21/homelab-2-secuirty-onion-IDS-images/blob/10d39700f4fd1505d3cff3838ad9a56708f514e5/7%20software%20install%20accept.jpg)
 
@@ -88,7 +88,7 @@ pfsense welcome page:
 
 ![image alt](https://github.com/Cyberakr21/homelab-2-secuirty-onion-IDS-images/blob/10d39700f4fd1505d3cff3838ad9a56708f514e5/20%20shutdown%20the%20Pfsense%20to%20finish%20install%20and%20load%20it%20up%20again%20and%20you%20will%20be%20taken%20here.jpg)
 
-Next we will Assign the appropriate interfaces for the WAN (em0) and LAN (em1) connections based on your network setup on pfSense by click "1" to Assign Interfaces:
+Next, we will Assign the appropriate interfaces for the WAN (em0) and LAN (em1) connections based on your network setup on pfSense by clicking "1" to Assign Interfaces:
 
 ![image alt](https://github.com/Cyberakr21/homelab-2-secuirty-onion-IDS-images/blob/10d39700f4fd1505d3cff3838ad9a56708f514e5/21%20assigning%20the%20interfaces%20we%20created.jpg)
 
@@ -112,7 +112,7 @@ Next, we will give the assigned interfaces IP addresses each on different subnet
 
     Click "2" to Set IP addresses
 
-Example of configuring the optinal interface we added which is LAN1:
+Example of configuring the optional interface we added, which is LAN1:
 
 ![image alt](https://github.com/Cyberakr21/homelab-2-secuirty-onion-IDS-images/blob/10d39700f4fd1505d3cff3838ad9a56708f514e5/26%20configuring%20the%20ip%20address%20now.jpg)
 
@@ -120,14 +120,14 @@ When asked about reverting to HTTP as the web configurator, click "y" to access 
 
 ![image alt](https://github.com/Cyberakr21/homelab-2-secuirty-onion-IDS-images/blob/10d39700f4fd1505d3cff3838ad9a56708f514e5/27%20ip%20dhcp%20range%20for%20this%20lan%20for%20my%20lan%20kali%20inux%20to%20access%20the%20pfsense%20GUI.jpg)
 
-    Configuration above is all the things you will need to assign an IP address to all the other interfaces. As for this one, it's em2=192.168.2.1
-    The rest of the IP addresses 3rd Octet will be increased by 1:
+    The configuration above is all the things you will need to assign an IP address to for all the other interfaces. As for this one, it's em2=192.168.2.1
+    The rest of the IP addresses of the 3rd Octet will be increased by 1:
     em3=192.168.3.1
     em4=192.168.4.1
     em5=192.168.5.1
     em6=192.168.6.1
 
-    N.B Click "n" for the rest of the IP configs when asked to about reverting to HTTP as the web configurator protocol like the example below:
+    N.B Click "n" for the rest of the IP configs when asked about reverting to HTTP as the web configurator protocol like the example below:
 
 Example of em2:
 
@@ -152,11 +152,95 @@ In VMware Workstation:
 
 Click on "Create a New Virtual Machine" to start the setup process --> Select the "Typical (recommended)" configuration type --> click "Next" --> Choose the "Installer disc image file (iso)" option and browse to the location of the pfSense installation ISO file.
 
+Important hardware configs for Span/sniffing port and pfSense interface port:
 
+![image alt](https://github.com/Cyberakr21/2-homelab-security-onion--images-/blob/c1bb6600e8966782087a0d561903c4aa4f51e15c/4%20interface%20with%20no%20ip%20from%20pfsense%20for%20spam%20port.jpg)
+
+![image alt](https://github.com/Cyberakr21/2-homelab-security-onion--images-/blob/c1bb6600e8966782087a0d561903c4aa4f51e15c/5%20red%20spam%20port%20and%20green%20pfsense%20connector.jpg)
+
+        Red Span port and green pfSense interface connector
 
 ### Steps to configure Security Onion
 
+[Click here if you want to want to see the live walkthrough of installing Security Onion](https://www.youtube.com/watch?v=gDlgDE-vbJ8&list=PLljFlTO9rB17E0hOetV_R4Lc0WbEy8q_Y)
 
+Once the virtual machine is created, power it on, and you will see the Security Onion welcome screen:
+
+![image alt](https://github.com/Cyberakr21/2-homelab-security-onion--images-/blob/c1bb6600e8966782087a0d561903c4aa4f51e15c/6%20once%20you%20have%20accept%20the%20hardware%20cofig%20power%20on%20the%20vm%20to%20get%20this%20and%20choose%20the%202nd%20option.jpg)
+
+        On the welcome screen, select the first installation process
+        NB: Use Tab to move around the screen
+
+This will take you t to this page:
+
+![image alt](https://github.com/Cyberakr21/2-homelab-security-onion--images-/blob/c1bb6600e8966782087a0d561903c4aa4f51e15c/1.1%20choose%20the%20first%20onin.jpg)
+
+        Type "yes" to accept
+
+After you click yes, an installation process will run and it will ask you to create a username and password followed by you being asked to reboot:
+
+    Click"Enter" to reboot
+
+This will take you to this screen:
+
+![image alt](https://github.com/Cyberakr21/2-homelab-security-onion--images-/blob/c1bb6600e8966782087a0d561903c4aa4f51e15c/10%20after%20being%20promoted%20to%20login%20using%20creduential%20created%20follow%20this.jpg)
+
+    Click"Yes"
+
+Choose Eval for the type of installation:
+
+![image alt](https://github.com/Cyberakr21/2-homelab-security-onion--images-/blob/c1bb6600e8966782087a0d561903c4aa4f51e15c/3.1%20right%20install.jpg)
+
+    Click "OK"
+
+![image alt](https://github.com/Cyberakr21/2-homelab-security-onion--images-/blob/c1bb6600e8966782087a0d561903c4aa4f51e15c/3.2%20agreement.jpg)
+
+    Type AGREE
+    Click "Ok"
+
+Node installation type:
+
+![image alt](https://github.com/Cyberakr21/2-homelab-security-onion--images-/blob/c1bb6600e8966782087a0d561903c4aa4f51e15c/3.3%20standard.jpg)
+
+    Select Standard
+    Click"Ok"
+    Next, you will be asked to create a hostname
+    Click"Ok"
+
+Select the NIC to manage your Security Onion, which should be the NAT interface we created in the initial process of the hardware configs:
+
+![image alt](https://github.com/Cyberakr21/2-homelab-security-onion--images-/blob/c1bb6600e8966782087a0d561903c4aa4f51e15c/3.5%20NAT%20interface%20for%20management.jpg)
+
+Selecting connection to the internet:
+
+![image alt](https://github.com/Cyberakr21/2-homelab-security-onion--images-/blob/c1bb6600e8966782087a0d561903c4aa4f51e15c/3.7%20after%20doing%20correct%20interface%20i%20did%20ip%20address.jpg)
+
+    Click"Ok"
+
+![image alt](https://github.com/Cyberakr21/2-homelab-security-onion--images-/blob/c1bb6600e8966782087a0d561903c4aa4f51e15c/3.8%20keep%20default.jpg)
+
+    Click"Yes" this just accepts the default settings
+
+Take a screenshot of the last 2 Next screens or Note them down somewhere:
+
+    First screen will show your final configurations
+    Chick"Yes"
+    Last sceen will show you how you can reach your security onion web interface and how to login
+    Click"Ok" after
+
+Next you will login into the Security onion console line to configure a firewall rule to allow a device of which you know the ip address for so that you can connect to web interface of Security Onion. Why do this you might ask, Security Onion defalult firewall rule block any traffic inbound espically if they are on different subnets. This is the command to configure an allow IP address:
+
+    sudo so-firewall --apply includehost analyst <IP ADDRESS>
+    For me, this will be my client Ubuntu machine
+
+If you want to install the ubuntu machine that can manage the Security onion, you click the provide link to do so:
+
+[Chick here if you want to know how to install unbuntu Desktop](https://medium.com/@florenceify74/how-to-download-install-and-run-ubuntu-in-vmware-workstation-ce5f2d4d0438)
+
+    Once you have installed the ubuntu
+    Open the terminal and run this command so the you can get ifconfig to get the ip address you need to configure the allow rule for the Security Onion web interface:
+
+    Sudo apt-get install net-tools
 
 ## 4. Configuring Kali Linux as an Attack Machine
 Kali Linux is set up as a penetration testing and attack simulation machine. It includes tools for vulnerability scanning, exploitation, and post-exploitation activities.

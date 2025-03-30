@@ -508,6 +508,92 @@ NB: Go to the pfsense Web interface to configure DHCP so that pfsense knows that
 ## 6. Configuring Windows Desktops
 Windows desktop virtual machines are added to the domain to test user access and security policies. These machines simulate end-user systems in a corporate network.
 
+### Configuring Windows 10
+
+Click on "Create a New Virtual Machine" to start the setup process --> Select the "Typical (recommended)" configuration type --> click "Next" --> Choose the "Installer disc image file (iso)" option and browse to the location of Windows 1o installation ISO file:
+
+![image alt](https://github.com/Cyberakr21/Windows-desktop-machine/blob/f55c1139b04ee0f316abf8d6f5943d7ff7cf1b9d/1%20create.jpg)
+
+![image alt](https://github.com/Cyberakr21/Windows-desktop-machine/blob/f55c1139b04ee0f316abf8d6f5943d7ff7cf1b9d/2%20select%20iso.jpg)
+
+![image alt](https://github.com/Cyberakr21/Windows-desktop-machine/blob/f55c1139b04ee0f316abf8d6f5943d7ff7cf1b9d/3%20select%20win10%20enterprice.jpg)
+
+Hardware config:
+
+![image alt](https://github.com/Cyberakr21/Windows-desktop-machine/blob/f55c1139b04ee0f316abf8d6f5943d7ff7cf1b9d/4%20interface%20for%20clients.jpg)
+
+After completing the Hardware configuration and before powering the machine, Delete the floppy disk:
+
+![image alt](https://github.com/Cyberakr21/Windows-desktop-machine/blob/f55c1139b04ee0f316abf8d6f5943d7ff7cf1b9d/5%20remove%20floppy%20and%20then%20power%20vm%20on.jpg)
+
+Power the Machine on install Windows 10 Enterprise: 
+
+![image alt](https://github.com/Cyberakr21/Windows-desktop-machine/blob/f55c1139b04ee0f316abf8d6f5943d7ff7cf1b9d/6%20click%20next%20and%20install%20before%20this%20and%20accept%20and%20next.jpg)
+
+    Accept license terms
+    Click"Next"
+        
+![image alt](https://github.com/Cyberakr21/Windows-desktop-machine/blob/f55c1139b04ee0f316abf8d6f5943d7ff7cf1b9d/7%20custom%20install.jpg)
+
+    Use Custom Install
+
+![image alt](https://github.com/Cyberakr21/Windows-desktop-machine/blob/f55c1139b04ee0f316abf8d6f5943d7ff7cf1b9d/8%20click%20new%20and%20apply.jpg)
+
+    Select New > Apply > OK > Next
+
+![image alt](https://github.com/Cyberakr21/Windows-desktop-machine/blob/f55c1139b04ee0f316abf8d6f5943d7ff7cf1b9d/8.1%20press%20okay.jpg)
+
+    Click"Ok"
+
+![image alt](https://github.com/Cyberakr21/Windows-desktop-machine/blob/f55c1139b04ee0f316abf8d6f5943d7ff7cf1b9d/8.2%20partion%203%20and%20next.jpg)
+
+    Select"Primary"
+    Click"Next"
+    Select your region and click "Yes"
+
+![image alt](https://github.com/Cyberakr21/Windows-desktop-machine/blob/f55c1139b04ee0f316abf8d6f5943d7ff7cf1b9d/10%20dont%20have%20internet.jpg)
+
+At this point, accept all default and Windows 10 should be installed. Next you will install the tool that will allow you to have a fullscreen function:
+
+![image alt](https://github.com/Cyberakr21/Windows-desktop-machine/blob/f55c1139b04ee0f316abf8d6f5943d7ff7cf1b9d/11%20installation%20process%20in%20website.jpg)
+
+Configure the IP address for this machine using the subnet for our Client Network:
+
+![image alt](https://github.com/Cyberakr21/Windows-desktop-machine/blob/f55c1139b04ee0f316abf8d6f5943d7ff7cf1b9d/14%20ip%20address%20config%20and%20dc%20dns%20and%20gateway.jpg)
+
+![image alt](https://github.com/Cyberakr21/Windows-desktop-machine/blob/f55c1139b04ee0f316abf8d6f5943d7ff7cf1b9d/15%20configure%20and%20try%20join%20domain.jpg)
+
+**Next we will Join this machine to our Domain Controller, using this steps:**
+**NB** The IP address and DNS need to be configure first to join the Domain
+
+Go to the search bar and search"Settings" --> Accounts --> Access work and School
+
+![image alt](https://github.com/Cyberakr21/Windows-desktop-machine/blob/f55c1139b04ee0f316abf8d6f5943d7ff7cf1b9d/proper%20domain%20pc%20join.jpg)
+
+Click"Connect" --> Click "Join this device to a local Active Directory domain"
+
+![image alt](https://github.com/Cyberakr21/Windows-desktop-machine/blob/f55c1139b04ee0f316abf8d6f5943d7ff7cf1b9d/2%20add%20local%20dc.jpg)
+
+![image alt](https://github.com/Cyberakr21/Windows-desktop-machine/blob/f55c1139b04ee0f316abf8d6f5943d7ff7cf1b9d/3%20domain%20name.jpg)
+
+    Enter your Domain name"XXX.local"
+
+![image alt](https://github.com/Cyberakr21/Windows-desktop-machine/blob/f55c1139b04ee0f316abf8d6f5943d7ff7cf1b9d/4%20credential%20to%20Join%20the%20DC.jpg)
+
+    Enter the Credential you use to access your Windows Server 2025
+
+Enter the account information for the account and Privilege access this account should have:
+
+![image alt](https://github.com/Cyberakr21/Windows-desktop-machine/blob/f55c1139b04ee0f316abf8d6f5943d7ff7cf1b9d/5%20information%20for%20the%20user%20and%20permission%20type.jpg)
+
+These are the steps you will use to add a computer to the Domain Controller.
+
+**NB Next, head to your Windows Server to check if the device/devices are present there**
+
+Click"Server Manager"-->Tools--> Active Directory users and computer and follow the steps:
+
+![image alt](https://github.com/Cyberakr21/Windows-desktop-machine/blob/f55c1139b04ee0f316abf8d6f5943d7ff7cf1b9d/6%20go%20to%20the%20DC%20and%20check%20if%20pcs%20are%20present%20in%20it.jpg)
+
 ## 7. Configuring Splunk
 Splunk is deployed for log aggregation, analysis, and visualization. It integrates with other components in the lab to provide insights into network and system activities.
 

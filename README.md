@@ -384,7 +384,7 @@ Go to manage and select "Add Roles and Features"
 
 ![image alt](https://github.com/Cyberakr21/4-homelab-active-directory--images-/blob/08cf7068f616513fd61cece564d16108bf112fd9/6%20activation%20the%20DC%20feature.jpg)
 
-Select Manage -->Once on Add Roles and Features --> Sever Roles --> Select Active Directory Domain services--> Select "Add features" --> Click"Next" until you get to installation
+Once on Add Roles and Features --> Sever Roles --> Select Active Directory Domain services--> Select "Add features" --> Click"Next" until you get to installation
 
 ![image alt](https://github.com/Cyberakr21/4-homelab-active-directory--images-/blob/08cf7068f616513fd61cece564d16108bf112fd9/7%20click%20next%20until%20you%20arrive%20at%20server%20role%20roles%20and%20click%20on%20add%20feature%20of%20DC%20services.jpg)
 
@@ -410,11 +410,11 @@ Set a password:
 
 ![image alt](https://github.com/Cyberakr21/4-homelab-active-directory--images-/blob/08cf7068f616513fd61cece564d16108bf112fd9/11%20set%20password%20and%20click%20next%20on%20everything%20until%20you%20reach%20install.jpg)
 
-    click "Next" on everything until you reach install
+    click "Next" on everything until you reach the install
     Wait for the Reboot
     After the Reboot, Log back in
 
-after that install,Select Manage --> Click on "Add Roles and Features" --> Sever Roles --> Select "Active Directory certificate services"--> Select "Add features" --> Click"Next" until you get to intallation
+After the installation, Select Manage --> Click on "Add Roles and Features" --> Sever Roles --> Select "Active Directory certificate services"--> Select "Add features" --> Click"Next" until you get to the installation menu
 
 ![image alt](https://github.com/Cyberakr21/4-homelab-active-directory--images-/blob/08cf7068f616513fd61cece564d16108bf112fd9/12%20after%20the%20rest%2C%20click%20on%20role%20to%20add%20AD%20certs.jpg)
 
@@ -432,7 +432,7 @@ Click Next on Credentials:
 
 ![image alt](https://github.com/Cyberakr21/4-homelab-active-directory--images-/blob/08cf7068f616513fd61cece564d16108bf112fd9/15%20click%20next%20after%20this%20until%20validty%20period.jpg)
 
-Click next until Validy Period:
+Click next until Validity Period:
 
 ![image alt](https://github.com/Cyberakr21/4-homelab-active-directory--images-/blob/08cf7068f616513fd61cece564d16108bf112fd9/16%20set%20the%20years%20to%20however%20long%20you%20think%20you%20will%20be%20using%20this%20server%20for%20click%20next%20until%20configure.jpg)
 
@@ -442,10 +442,20 @@ Click next until Validy Period:
 
 At this point, Active Directory has been configured
 
-### Setting up the user for our client Network that will be managed by our Domain Controller
+### Setting up the users for our client Network that will be managed by our Domain Controller
+
+In server Manager --> Click"Tools" --> Click"Active Directory Users and Computers":
+
+![image alt](https://github.com/Cyberakr21/4-homelab-active-directory--images-/blob/08cf7068f616513fd61cece564d16108bf112fd9/17%20adding%20users.jpg)
+
+Select your Domain Name (CYBERAKR.local) > Users, Right Click & Select New > User
+
+![image alt](https://github.com/Cyberakr21/4-homelab-active-directory--images-/blob/08cf7068f616513fd61cece564d16108bf112fd9/18%20right%20click%20on%20user%20after%20going%20into%20cyberakr.local.jpg)
+
+
 
 ## 6. Configuring Windows Desktops
-Windows desktop virtual machines are added to the domain for testing user access and security policies. These machines simulate end-user systems in a corporate network.
+Windows desktop virtual machines are added to the domain to test user access and security policies. These machines simulate end-user systems in a corporate network.
 
 ## 7. Configuring Splunk
 Splunk is deployed for log aggregation, analysis, and visualization. It integrates with other components in the lab to provide insights into network and system activities.

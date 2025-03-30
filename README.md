@@ -597,6 +597,10 @@ Click"Server Manager"-->Tools--> Active Directory users and computer and follow 
 ## 7. Configuring Splunk
 Splunk is deployed for log aggregation, analysis, and visualization. It integrates with other components in the lab to provide insights into network and system activities.
 
+**To begin the installation of Splunk, you will have to download an Ubuntu Server to install the Splunk instance**
+
+[Download Ubuntu Server](https://ubuntu.com/download/server)
+
 ## How to Use This Repository
 Each section of the lab setup is documented with step-by-step instructions, screenshots, and configuration files. Follow the guides to replicate the setup in your own environment.
 

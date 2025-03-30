@@ -1,7 +1,7 @@
 # Detection-and-Monitoring-Homelab
 # Cybersecurity Homelab Setup
 
-This project demonstrates the setup of a comprehensive cybersecurity homelab environment using VMware Workstation as the hypervisor. The lab includes network segmentation, security monitoring, intrusion detection, and attack simulation. Below are the key components of the setup:
+This project demonstrates the setup of a comprehensive cybersecurity home lab environment using VMware Workstation as the hypervisor. The lab includes network segmentation, security monitoring, intrusion detection, and attack simulation. Below are the key components of the setup:
 
 ## Network Diagram 
 ![image alt](https://github.com/Cyberakr21/Detection-and-Monitoring-Homelab/blob/426e2687c0832cffbfaa7653cbd967e73bc76813/homelab%20Detection.jpg)
@@ -14,7 +14,7 @@ VMware Workstation serves as the foundation for hosting all virtual machines in 
 
 After you click the link:
 
-Click Download Fusion or Workstation Next ---> Create account ---> Login and Click My downloads ---> Chick Free Software Downloads available HERE ---> Find VMware Workstation Pro and click that ---> Choose the system preference Win or Linux ---> Download and Install
+**Click Download Fusion or Workstation Next ---> Create account ---> Login and Click My downloads ---> Chick Free Software Downloads available HERE ---> Find VMware Workstation Pro and click that ---> Choose the system preference Win or Linux ---> Download and Install**
 
 [How to Install Vmware Workstation](https://medium.com/analytics-vidhya/step-by-step-install-vmware-workstation-on-windows-1027abc3fadc)
 
@@ -25,13 +25,13 @@ pfSense is configured as a virtual router and firewall to isolate and secure the
 
 In VMware Workstation:
 
-Click on "Create a New Virtual Machine" to start the setup process --> Select the "Typical (recommended)" configuration type --> click "Next" --> Choose the "Installer disc image file (iso)" option and browse to the location of the pfSense installation ISO file.
+**Click on "Create a New Virtual Machine" to start the setup process --> Select the "Typical (recommended)" configuration type --> Click "Next" --> Choose the "Installer disc image file (iso)" option and browse to the location of the pfSense installation ISO file.**
 
 Disk space config: 
 
 ![image alt](https://github.com/Cyberakr21/homelab-1-pfsense-images/blob/621a9b3d67f83f9a2ddfc4800abd96835dcc8e4d/5.jpg)
 
-Proceed with the default settings for the virtual machine configuration and add 6 new network adapters by clicking "Add" --> After adding interfaces, customize them by clicking "Custom: specific virtual Network":
+**Proceed with the default settings for the virtual machine configuration and add 6 new network adapters by clicking "Add" --> After adding interfaces, customize them by clicking "Custom: specific virtual Network":**
 
 ![image alt](https://github.com/Cyberakr21/homelab-1-pfsense-images/blob/621a9b3d67f83f9a2ddfc4800abd96835dcc8e4d/6%20hardware%20specification.jpg)
 
@@ -42,38 +42,38 @@ Once the virtual machine is created, power it on, and you will see the pfSense w
 ![image alt](https://github.com/Cyberakr21/homelab-1-pfsense-images/blob/621a9b3d67f83f9a2ddfc4800abd96835dcc8e4d/7%20software%20install%20accept.jpg)
 
     Click "Accept"
-    Click on "Install pfSense" press tab to click "OK"
-    Network Installation click "OK" to configure WAN interface next
+    Click on "Install pfSense" and press Tab to click "OK"
+    Network Installation: click "OK" to configure the WAN interface next
 
-WAN interface Assignment and Configuration page:
+**WAN interface Assignment and Configuration page:**
 
 ![image alt](https://github.com/Cyberakr21/homelab-1-pfsense-images/blob/621a9b3d67f83f9a2ddfc4800abd96835dcc8e4d/10%20click%20advance%20and%20find%20the%20right%20wan%20interface%20which%20should%20be%20the%20NAT%20interface.jpg)
 
-  WAN Mode Setup:
+**WAN Mode Setup:**
 
 ![image alt](https://github.com/Cyberakr21/homelab-1-pfsense-images/blob/621a9b3d67f83f9a2ddfc4800abd96835dcc8e4d/11.jpg)
 
-Active Subscription Validation:
+**Active Subscription Validation:**
 
 ![image alt](https://github.com/Cyberakr21/homelab-1-pfsense-images/blob/621a9b3d67f83f9a2ddfc4800abd96835dcc8e4d/12%20choose%20WAN%20to%20get%20to%20this%20and%20click%20install%20CE.jpg)
 
-Installation Options:
+**Installation Options:**
 
 ![image alt](https://github.com/Cyberakr21/homelab-1-pfsense-images/blob/621a9b3d67f83f9a2ddfc4800abd96835dcc8e4d/13.jpg)
 
-ZFS Virtual Device Type:
+**ZFS Virtual Device Type:**
 
 ![image alt](https://github.com/Cyberakr21/homelab-1-pfsense-images/blob/621a9b3d67f83f9a2ddfc4800abd96835dcc8e4d/14.jpg)
 
-Disk Selection:
+**Disk Selection:**
 
 ![image alt](https://github.com/Cyberakr21/homelab-1-pfsense-images/blob/621a9b3d67f83f9a2ddfc4800abd96835dcc8e4d/15%20click%20ok%20on%20everything.jpg)
 
-Software version:
+**Software version:**
 
 ![image alt](https://github.com/Cyberakr21/homelab-1-pfsense-images/blob/621a9b3d67f83f9a2ddfc4800abd96835dcc8e4d/16.jpg)
 
-Complete installation by clicking "Reboot"
+**Complete installation by clicking "Reboot"**
 
 After rebooting, disconnect the iso by: 
 
@@ -148,7 +148,7 @@ Recommended installation process:
 
 In VMware Workstation:
 
-Click on "Create a New Virtual Machine" to start the setup process --> Select the "Typical (recommended)" configuration type --> click "Next" --> Choose the "Installer disc image file (iso)" option and browse to the location of the security onion installation ISO file.
+**Click on "Create a New Virtual Machine" to start the setup process --> Select the "Typical (recommended)" configuration type --> click "Next" --> Choose the "Installer disc image file (iso)" option and browse to the location of the security onion installation ISO file.**
 
 Important hardware configs for Span/sniffing port and pfSense interface port:
 
@@ -209,7 +209,7 @@ Select the NIC to manage your Security Onion, which should be the NAT interface 
 
 ![image alt](https://github.com/Cyberakr21/2-homelab-security-onion--images-/blob/c1bb6600e8966782087a0d561903c4aa4f51e15c/3.5%20NAT%20interface%20for%20management.jpg)
 
-Selecting connection to the internet:
+Selecting a connection to the internet:
 
 ![image alt](https://github.com/Cyberakr21/2-homelab-security-onion--images-/blob/c1bb6600e8966782087a0d561903c4aa4f51e15c/3.7%20after%20doing%20correct%20interface%20i%20did%20ip%20address.jpg)
 
@@ -217,26 +217,26 @@ Selecting connection to the internet:
 
 ![image alt](https://github.com/Cyberakr21/2-homelab-security-onion--images-/blob/c1bb6600e8966782087a0d561903c4aa4f51e15c/3.8%20keep%20default.jpg)
 
-    Click"Yes" this just accepts the default settings
+    Click"Yes" This just accepts the default settings
 
 Take a screenshot of the last 2 Next screens or Note them down somewhere:
 
-    First screen will show your final configurations
-    Chick"Yes"
-    Last sceen will show you how you can reach your security onion web interface and how to login
+    The first screen will show your final configurations
+    Click"Yes"
+    The last screen will show you how you can reach your security onion web interface and how to log in
     Click"Ok" after
 
-Next you will login into the Security onion console line to configure a firewall rule to allow a device of which you know the ip address for so that you can connect to web interface of Security Onion. Why do this you might ask, Security Onion defalult firewall rule block any traffic inbound espically if they are on different subnets. This is the command to configure an allow IP address:
+Next, you will log into the Security Onion console line to configure a firewall rule to allow a device for which you know the IP address so that you can connect to the web interface of Security Onion. Why do this you might ask, Security Onion defalult firewall rule block any traffic inbound espically if they are on different subnets. This is the command to configure an allowed IP address:
 
     sudo so-firewall --apply includehost analyst <IP ADDRESS>
     For me, this will be my client Ubuntu machine
 
-If you want to install the ubuntu machine that can manage the Security onion, you click the provide link to do so:
+If you want to install the Ubuntu machine that can manage the Security Onion, you click the provided link to do so:
 
 [Chick here if you want to know how to install unbuntu Desktop](https://medium.com/@florenceify74/how-to-download-install-and-run-ubuntu-in-vmware-workstation-ce5f2d4d0438)
 
-    Once you have installed the ubuntu
-    Open the terminal and run this command so the you can get ifconfig to get the ip address you need to configure the allow rule for the Security Onion web interface:
+    Once you have installed the Ubuntu
+    Open the terminal and run this command so that you can get ifconfig to get the IP address you need to configure the allow rule for the Security Onion web interface:
 
     Sudo apt-get install net-tools
 
@@ -249,11 +249,11 @@ Kali Linux is set up as a penetration testing and attack simulation machine. It 
 
 ### Virtual Machine Configuration
 
-Since you’re downloading the VM file, all you’ll need to do is click on the .vmx file from the Kali Folder you downloaded, and it will automatically load up the default Kali image in VMware.
+**Since you’re downloading the VM file, all you’ll need to do is click on the .vmx file from the Kali Folder you downloaded, and it will automatically load up the default Kali image in VMware.**
 
 ![image alt](https://github.com/Cyberakr21/3-homelab-Kali-attacker--images/blob/7b5c5c28d5ef99b1a57fcb914c44861051ee6b6f/1%20installation.jpg)
 
-When you power on the Kali Machine, It will have a default login account:
+**When you power on the Kali Machine, It will have a default login account:**
 
     Username: kali
     password: kali
@@ -267,7 +267,7 @@ Once you log in, you can change the password by going to the terminal and typing
 
 The Kali machine is ready for use after configuring your own password.
 
-With the Kali machine set up, the pfsense WebConfigurator can be accessed in order to make some changes to the pfsense interface and firewall rules. Navigate to the web browser and search for 192.168.1.1
+**With the Kali machine set up, the pfsense WebConfigurator can be accessed in order to make some changes to the pfsense interface and firewall rules. Navigate to the web browser and search for 192.168.1.1**
 
 ![image alt](https://github.com/Cyberakr21/3-homelab-Kali-attacker--images/blob/7b5c5c28d5ef99b1a57fcb914c44861051ee6b6f/3%20pf%20sense%20LAN%20address%20used%20to%20reach%20webconfig%20em2.jpg)
 
@@ -301,7 +301,7 @@ Select your timezone:
 
     Click"Next"
 
-I am allowing private addresses just to get great alerts for the log collection later:
+**I am allowing private addresses just to get great alerts for the log collection later:**
 
 ![image alt](https://github.com/Cyberakr21/3-homelab-Kali-attacker--images/blob/7b5c5c28d5ef99b1a57fcb914c44861051ee6b6f/8%20after%20seeting%20time%20zone%2C%20personal%20choice%20deselect%20to%20get%20more%20alerts%20since%20this%20is%20a%20sandbox%20not%20interproce.jpg)
 
@@ -321,7 +321,7 @@ Click on interfaces to get:
 
 ![image alt](https://github.com/Cyberakr21/3-homelab-Kali-attacker--images/blob/7b5c5c28d5ef99b1a57fcb914c44861051ee6b6f/111%20Check%20if%20this%20looks%20like%20what%20you%20have%20on%20pf%20sense.jpg)
 
-The next step is to change the names of the interfaces to reflect our network diagram by click on each interfaces that need to be changed:
+The next step is to change the names of the interfaces to reflect our network diagram by clicking on each interfaces that need to be changed:
 
 interface LAN(em1) example:
 
@@ -343,7 +343,7 @@ Next, click firewall to configure ACL(Acess control list):
 
 ![image alt](https://github.com/Cyberakr21/3-homelab-Kali-attacker--images/blob/7b5c5c28d5ef99b1a57fcb914c44861051ee6b6f/16%20next%20click%20firewall%20to%20configure%20ACL.jpg)
 
-        Cofigure to allow TCP traffic
+        Configure to allow TCP traffic
         Then click "save"
 
 This is the majority of the firewall configuration needed for pfsense, and you can do more I you want.
@@ -353,7 +353,7 @@ A Windows Server 2025 is configured to act as a Domain Controller for managing u
 
 [Download the Windows 2025 Server Evaluation](https://www.microsoft.com/en-us/evalcenter/download-windows-server-2025)
 
-    You will need to fill out a form for mircosoft to get the Win server Iso
+    You will need to fill out a form for Microsoft to get the Win server Iso
 
 Recommended installation process:
 
@@ -364,7 +364,7 @@ Remove Floppy disk hardware:
 
 N.b Select the Windows Server 2025 standard Evaluation (Desktop Experience)during installation
 
-After powering the VM and install Windows Server 2025, log into the machine so that you can install software that allows fullscreen view on any Windows machine:
+After powering the VM and installing Windows Server 2025, log into the machine so that you can install software that allows a fullscreen view on any Windows machine:
 
 ![image alt](https://github.com/Cyberakr21/4-homelab-active-directory--images-/blob/08cf7068f616513fd61cece564d16108bf112fd9/3%20after%20installation%20is%20done%2C%20install%20vm%20tools%20to%20get%20resolution%20change.jpg)
 
@@ -378,13 +378,13 @@ Follow this installation process next:
 
 ### Steps to Configuring Active Directory
 
-After the restart, you should end up on this screen or you can use the search bar to search"Server manager". Use the server manager to configure Active Directory.
+**After the restart, you should end up on this screen or you can use the search bar to search"Server manager". Use the server manager to configure Active Directory.**
 
 Go to manage and select "Add Roles and Features"
 
 ![image alt](https://github.com/Cyberakr21/4-homelab-active-directory--images-/blob/08cf7068f616513fd61cece564d16108bf112fd9/6%20activation%20the%20DC%20feature.jpg)
 
-Once on Add Roles and Features --> Sever Roles --> Select Active Directory Domain services--> Select "Add features" --> Click"Next" until you get to installation
+**Once on Add Roles and Features --> Sever Roles --> Select Active Directory Domain services--> Select "Add features" --> Click"Next" until you get to installation**
 
 ![image alt](https://github.com/Cyberakr21/4-homelab-active-directory--images-/blob/08cf7068f616513fd61cece564d16108bf112fd9/7%20click%20next%20until%20you%20arrive%20at%20server%20role%20roles%20and%20click%20on%20add%20feature%20of%20DC%20services.jpg)
 
@@ -414,7 +414,7 @@ Set a password:
     Wait for the Reboot
     After the Reboot, Log back in
 
-After the installation, Select Manage --> Click on "Add Roles and Features" --> Sever Roles --> Select "Active Directory certificate services"--> Select "Add features" --> Click"Next" until you get to the installation menu
+**After the installation, Select Manage --> Click on "Add Roles and Features" --> Sever Roles --> Select "Active Directory certificate services"--> Select "Add features" --> Click"Next" until you get to the installation menu**
 
 ![image alt](https://github.com/Cyberakr21/4-homelab-active-directory--images-/blob/08cf7068f616513fd61cece564d16108bf112fd9/12%20after%20the%20rest%2C%20click%20on%20role%20to%20add%20AD%20certs.jpg)
 
@@ -440,19 +440,19 @@ Click next until Validity Period:
     Then select Configure
     Manually restart the server in order for all the settings to take effect
 
-At this point, Active Directory has been configured
+**At this point, Active Directory has been configured**
 
 ### Setting up the users for our client Network that will be managed by our Domain Controller
 
-In server Manager --> Click"Tools" --> Click"Active Directory Users and Computers":
+**In server Manager --> Click"Tools" --> Click"Active Directory Users and Computers":**
 
 ![image alt](https://github.com/Cyberakr21/4-homelab-active-directory--images-/blob/08cf7068f616513fd61cece564d16108bf112fd9/17%20adding%20users.jpg)
 
-Select your Domain Name (CYBERAKR.local) > Users, Right Click & Select New > User
+Select your Domain Name **(CYBERAKR.local)**** > Users**, **Right Click & Select New > User**
 
 ![image alt](https://github.com/Cyberakr21/4-homelab-active-directory--images-/blob/08cf7068f616513fd61cece564d16108bf112fd9/18%20right%20click%20on%20user%20after%20going%20into%20cyberakr.local.jpg)
 
-After clicking "User", you will prompted to create an account:
+After clicking **"User"**, you will prompted to create an account:
 
 ![image alt](https://github.com/Cyberakr21/4-homelab-active-directory--images-/blob/e05687d707c85bac67aa79ab7520ce4b6f128c2d/19%20adding%20the%20answer%20for%20the%20windows%20machine%20for%20adding%20them%20to%20DC.jpg)
 
@@ -510,7 +510,7 @@ Windows desktop virtual machines are added to the domain to test user access and
 
 ### Configuring Windows 10
 
-Click on "Create a New Virtual Machine" to start the setup process --> Select the "Typical (recommended)" configuration type --> click "Next" --> Choose the "Installer disc image file (iso)" option and browse to the location of Windows 1o installation ISO file:
+**Click on "Create a New Virtual Machine" to start the setup process --> Select the "Typical (recommended)" configuration type --> click "Next" --> Choose the "Installer disc image file (iso)" option and browse to the location of Windows 1o installation ISO file:**
 
 ![image alt](https://github.com/Cyberakr21/Windows-desktop-machine/blob/f55c1139b04ee0f316abf8d6f5943d7ff7cf1b9d/1%20create.jpg)
 
@@ -553,7 +553,7 @@ Power the Machine on install Windows 10 Enterprise:
 
 ![image alt](https://github.com/Cyberakr21/Windows-desktop-machine/blob/f55c1139b04ee0f316abf8d6f5943d7ff7cf1b9d/10%20dont%20have%20internet.jpg)
 
-At this point, accept all default and Windows 10 should be installed. Next you will install the tool that will allow you to have a fullscreen function:
+**At this point, accept all defaults, and Windows 10 should be installed. Next, you will install the tool that will allow you to have a fullscreen function:**
 
 ![image alt](https://github.com/Cyberakr21/Windows-desktop-machine/blob/f55c1139b04ee0f316abf8d6f5943d7ff7cf1b9d/11%20installation%20process%20in%20website.jpg)
 
@@ -563,8 +563,8 @@ Configure the IP address for this machine using the subnet for our Client Networ
 
 ![image alt](https://github.com/Cyberakr21/Windows-desktop-machine/blob/f55c1139b04ee0f316abf8d6f5943d7ff7cf1b9d/15%20configure%20and%20try%20join%20domain.jpg)
 
-**Next we will Join this machine to our Domain Controller, using this steps:**
-**NB** The IP address and DNS need to be configure first to join the Domain
+**Next, we will Join this machine to our Domain Controller, using these steps:**
+**NB** **The IP address and DNS need to be configured first to join the Domain**
 
 Go to the search bar and search"Settings" --> Accounts --> Access work and School
 
@@ -600,6 +600,142 @@ Splunk is deployed for log aggregation, analysis, and visualization. It integrat
 **To begin the installation of Splunk, you will have to download an Ubuntu Server to install the Splunk instance**
 
 [Download Ubuntu Server](https://ubuntu.com/download/server)
+
+Click on "Create a New Virtual Machine" to start the setup process --> Select the "Typical (recommended)" configuration type --> click "Next" --> Choose the "Installer disc image file (iso)" option and browse to the location of Windows 1o installation ISO file:
+
+![image alt](https://github.com/Cyberakr21/5-homelab-Splunk--images/blob/1e45f3005a0d432cb6c59e9e1663cd407da5c287/1%20ubuntu%20install%20to%20run%20splunk.jpg)
+
+Hardware specification:
+
+![image alt](https://github.com/Cyberakr21/5-homelab-Splunk--images/blob/1e45f3005a0d432cb6c59e9e1663cd407da5c287/2%20hardware%20specs.jpg)
+
+**Power on the VM to install the Ubuntu Server. Follow this installation process:**
+
+Welcome Screen
+![image alt](https://github.com/Cyberakr21/5-homelab-Splunk--images/blob/1e45f3005a0d432cb6c59e9e1663cd407da5c287/3%20poweron%20vm%20and%20select%20first.jpg)
+
+    Select"Try and Install"
+    Press Enter and select that
+    Select the preferred language
+    Click"Done" after selecting a language
+
+Select the type of installation of the Ubuntu Server
+
+![image alt](https://github.com/Cyberakr21/5-homelab-Splunk--images/blob/1e45f3005a0d432cb6c59e9e1663cd407da5c287/6%20select%20type%20and%20you%20tab%20to%20move%20around.jpg)
+
+![image alt](https://github.com/Cyberakr21/5-homelab-Splunk--images/blob/1e45f3005a0d432cb6c59e9e1663cd407da5c287/7%20click%20done.jpg)
+
+    Accept default setting
+    Click"Done" for all the options in the menu until you reach the Destruction action menu
+
+![image alt](https://github.com/Cyberakr21/5-homelab-Splunk--images/blob/1e45f3005a0d432cb6c59e9e1663cd407da5c287/12%20select%20continue.jpg)
+
+    Click"Continue"
+
+Profile configuration: 
+
+![image alt](https://github.com/Cyberakr21/5-homelab-Splunk--images/blob/1e45f3005a0d432cb6c59e9e1663cd407da5c287/13%20set%20login%20and%20use%20tab%20to%20move%20around.jpg)
+
+Skip this menu:
+
+![image alt](https://github.com/Cyberakr21/5-homelab-Splunk--images/blob/1e45f3005a0d432cb6c59e9e1663cd407da5c287/14%20skip%20and%20continue.jpg)
+
+![image alt](https://github.com/Cyberakr21/5-homelab-Splunk--images/blob/1e45f3005a0d432cb6c59e9e1663cd407da5c287/15%20space%20to%20select%20install%20server%20and%20done.jpg)
+
+    Press space to select "Install OpenSSH server" and Click "Done"
+    The installation will run, and you will be asked to reboot
+    During the installation, you’ll be prompted to remove the CD(ISO) remove it and then reboot the VM.
+    Reboot to complete the installation
+
+**At this point, the Ubuntu Server has been installed. After the VM has rebooted, your sign-in screen should look something similar to this:**
+
+![image alt](https://github.com/Cyberakr21/5-homelab-Splunk--images/blob/1e45f3005a0d432cb6c59e9e1663cd407da5c287/18%20login%20with%20credential%20once%20done%20installing.jpg)
+
+**Skip this if you dont want to install the GUI**
+
+**This is optional, but you can install a GUI if you dont want to use the command line to work on the Ubuntu Server by following this process:**
+
+![image alt](https://github.com/Cyberakr21/5-homelab-Splunk--images/blob/1e45f3005a0d432cb6c59e9e1663cd407da5c287/19%20after%20login%2C%20use%20this%20command%20to%20get%20gui%20look.jpg)
+
+    Run this command to begin the GUI installation:
+    Sudo apt install tasksel
+    Followed by:
+    sudo  tasksel install ubuntu-desktop
+    Reboot your Server to bring the Server up with the GUI
+
+If the above commands dont work, use this link:
+
+[Click Here to Install Desktop (GUI) on Ubuntu Server](https://phoenixnap.com/kb/how-to-install-a-gui-on-ubuntu)
+
+**We will now Set up Splunk**
+
+On your Ubuntu Server, Navigate to [Splunk.com](https://www.splunk.com/en_us/download/splunk-cloud.html)
+
+Once there, Click on "Splunk Enterprise for Free"
+![image alt](https://github.com/Cyberakr21/5-homelab-Splunk--images/blob/1e45f3005a0d432cb6c59e9e1663cd407da5c287/21%20click%20on%20splunk%20for%20hardware%20and%20use%20real%20information%20to%20fill%20things%20out.jpg)
+
+    You will need to create an account too
+    Then log in with that account 
+    This Splunk instance is a 60-day free license
+    
+This will be your next screen, so select the system you want to install this instance on:
+![image alt](https://github.com/Cyberakr21/5-homelab-Splunk--images/blob/1e45f3005a0d432cb6c59e9e1663cd407da5c287/22%20copy%20web%20get%20for%20tgz.jpg)
+
+    Copy the wget of your choice; I will be using wget since it's what I am used to.
+
+The next step is to paste the wget into your Ubuntu server terminal: 
+![image alt](https://github.com/Cyberakr21/5-homelab-Splunk--images/blob/1e45f3005a0d432cb6c59e9e1663cd407da5c287/23%20%20write%20it%20here.jpg)
+
+To open the wget Splunk file:
+
+![image alt](https://github.com/Cyberakr21/5-homelab-Splunk--images/blob/1e45f3005a0d432cb6c59e9e1663cd407da5c287/24%20use%20this%20commnd%20to%20run%20open%20the%20spplunk%20file.jpg)
+
+    Command:
+    tar xvf <splunk file>
+
+![image alt](https://github.com/Cyberakr21/5-homelab-Splunk--images/blob/1e45f3005a0d432cb6c59e9e1663cd407da5c287/25%20next%20command%20and%20run%20it.jpg)
+
+    Use these commands to go into the Splunk file opened:
+    cd splunk
+    ls
+    cd bin
+    ./splunk start
+
+At this point, Splunk will begin installing, and you will be prompted with these screens:
+
+![image alt](https://github.com/Cyberakr21/5-homelab-Splunk--images/blob/1e45f3005a0d432cb6c59e9e1663cd407da5c287/26.%20space%20and%20then%20agree%20with%20agreement.jpg)
+
+    Click"y"
+
+![image alt](https://github.com/Cyberakr21/5-homelab-Splunk--images/blob/1e45f3005a0d432cb6c59e9e1663cd407da5c287/27%20create%20username%20for%20splunk%20and%20password.jpg)
+
+    Create a Username and password to log into Splunk later
+
+Once that is done, you will receive your web configuration to access your Splunk, so save that somewhere
+
+Navigate to http://splunk:8000 in your browser
+
+**NB. You can set up your Splunk to boot up as your Sever boot up, too if you dont want to type "./start Splunk" everytime by using this command:**
+
+    Use this command on your terminal
+    sudo./splunk enable boot-start
+
+If you want to access Splunk from a different machine, can use this command to do so:
+
+    sudo ipstables -A INPUT -p tcp --dport 8000 -s <IP address of the machine> -j ACCEPT
+
+**At this point, Splunk has been installed, all you need to do is visit the navigate to the web page and login:**
+
+    Visit http://splunk:8000
+    accept risk and login using the credential made when we configured Splunk
+
+This will be your welcome page if everything is done right: 
+
+![image alt](https://github.com/Cyberakr21/5-homelab-Splunk--images/blob/1e45f3005a0d432cb6c59e9e1663cd407da5c287/33%20splunk%20working.jpg)
+
+**We will now be Installing the Universal Forwarder on the 2025 Windows Server to send logs to splunk:**
+
+
 
 ## How to Use This Repository
 Each section of the lab setup is documented with step-by-step instructions, screenshots, and configuration files. Follow the guides to replicate the setup in your own environment.

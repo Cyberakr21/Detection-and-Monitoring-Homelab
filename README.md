@@ -351,6 +351,99 @@ This is the majority of the firewall configuration needed for pfsense, and you c
 ## 5. Configuring a Windows Server as a Domain Controller
 A Windows Server 2025 is configured to act as a Domain Controller for managing user authentication and group policies. This setup mimics a real-world enterprise environment.
 
+[Download the Windows 2025 Server Evaluation](https://www.microsoft.com/en-us/evalcenter/download-windows-server-2025)
+
+    You will need to fill out a form for mircosoft to get the Win server Iso
+
+Recommended installation process:
+
+![image alt](https://github.com/Cyberakr21/4-homelab-active-directory--images-/blob/08cf7068f616513fd61cece564d16108bf112fd9/1%20hardware%20config%20and%20the%20other%20config%20website%20until.jpg)
+
+Remove Floppy disk hardware:
+![image alt](https://github.com/Cyberakr21/4-homelab-active-directory--images-/blob/08cf7068f616513fd61cece564d16108bf112fd9/2%20remove%20floppy%20disk%2C%20can%20affect%20installation.jpg)
+
+N.b Select the Windows Server 2025 standard Evaluation (Desktop Experience)during installation
+
+After powering the VM and install Windows Server 2025, log into the machine so that you can install software that allows fullscreen view on any Windows machine:
+
+![image alt](https://github.com/Cyberakr21/4-homelab-active-directory--images-/blob/08cf7068f616513fd61cece564d16108bf112fd9/3%20after%20installation%20is%20done%2C%20install%20vm%20tools%20to%20get%20resolution%20change.jpg)
+
+Follow this installation process next:
+
+![image alt](https://github.com/Cyberakr21/4-homelab-active-directory--images-/blob/08cf7068f616513fd61cece564d16108bf112fd9/4%20click%20next%20on%20vm%20tools%20on%20everything%20%20with%20changing%20nothings.jpg)
+
+    Choose "Typical"
+    Click Next on everything else until the restart screen
+    Click"Restart"
+
+### Steps to Configuring Active Directory
+
+After the restart, you should end up on this screen or you can use the search bar to search"Server manager". Use the server manager to configure Active Directory.
+
+Go to manage and select "Add Roles and Features"
+
+![image alt](https://github.com/Cyberakr21/4-homelab-active-directory--images-/blob/08cf7068f616513fd61cece564d16108bf112fd9/6%20activation%20the%20DC%20feature.jpg)
+
+Select Manage -->Once on Add Roles and Features --> Sever Roles --> Select Active Directory Domain services--> Select "Add features" --> Click"Next" until you get to installation
+
+![image alt](https://github.com/Cyberakr21/4-homelab-active-directory--images-/blob/08cf7068f616513fd61cece564d16108bf112fd9/7%20click%20next%20until%20you%20arrive%20at%20server%20role%20roles%20and%20click%20on%20add%20feature%20of%20DC%20services.jpg)
+
+![image alt](https://github.com/Cyberakr21/4-homelab-active-directory--images-/blob/08cf7068f616513fd61cece564d16108bf112fd9/8%20click%20next%20until%20you%20get%20to%20installation.jpg)
+
+    At the Confirmation menu, click "Install"
+    After the Install, Click "Close"
+
+After exiting the installation menu, you will see a yellow flag on the top right:
+
+![image alt](https://github.com/Cyberakr21/4-homelab-active-directory--images-/blob/08cf7068f616513fd61cece564d16108bf112fd9/9%20click%20on%20the%20flag%20and%20click%20promote%20to%20dc.jpg)
+
+    Click on the flag with the yellow caution triangle
+    Click on "Promote this server to a domain controller"
+
+Select Add a new forest:
+
+![image alt](https://github.com/Cyberakr21/4-homelab-active-directory--images-/blob/08cf7068f616513fd61cece564d16108bf112fd9/10%20set%20up%20the%20new%20forest.jpg)
+
+    Click"Next"
+
+Set a password:
+
+![image alt](https://github.com/Cyberakr21/4-homelab-active-directory--images-/blob/08cf7068f616513fd61cece564d16108bf112fd9/11%20set%20password%20and%20click%20next%20on%20everything%20until%20you%20reach%20install.jpg)
+
+    click "Next" on everything until you reach install
+    Wait for the Reboot
+    After the Reboot, Log back in
+
+after that install,Select Manage --> Click on "Add Roles and Features" --> Sever Roles --> Select "Active Directory certificate services"--> Select "Add features" --> Click"Next" until you get to intallation
+
+![image alt](https://github.com/Cyberakr21/4-homelab-active-directory--images-/blob/08cf7068f616513fd61cece564d16108bf112fd9/12%20after%20the%20rest%2C%20click%20on%20role%20to%20add%20AD%20certs.jpg)
+
+![image alt](https://github.com/Cyberakr21/4-homelab-active-directory--images-/blob/08cf7068f616513fd61cece564d16108bf112fd9/13.jpg)
+
+    Check "Restart the destination server automatically if required"
+
+After exiting the installation menu, you will see a yellow flag on the top right:
+
+![image alt](https://github.com/Cyberakr21/4-homelab-active-directory--images-/blob/08cf7068f616513fd61cece564d16108bf112fd9/14%20click%20on%20the%20flag%20to%20conf%20the%20certs.jpg)
+
+    Select "Configure Active Directory Certificate Services on the destination server"
+
+Click Next on Credentials:
+
+![image alt](https://github.com/Cyberakr21/4-homelab-active-directory--images-/blob/08cf7068f616513fd61cece564d16108bf112fd9/15%20click%20next%20after%20this%20until%20validty%20period.jpg)
+
+Click next until Validy Period:
+
+![image alt](https://github.com/Cyberakr21/4-homelab-active-directory--images-/blob/08cf7068f616513fd61cece564d16108bf112fd9/16%20set%20the%20years%20to%20however%20long%20you%20think%20you%20will%20be%20using%20this%20server%20for%20click%20next%20until%20configure.jpg)
+
+    Click Next till you get to the Confirmation menu
+    Then select Configure
+    Manually restart the server in order for all the settings to take effect
+
+At this point, Active Directory has been configured
+
+### Setting up the user for our client Network that will be managed by our Domain Controller
+
 ## 6. Configuring Windows Desktops
 Windows desktop virtual machines are added to the domain for testing user access and security policies. These machines simulate end-user systems in a corporate network.
 

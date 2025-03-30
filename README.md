@@ -452,8 +452,59 @@ Select your Domain Name (CYBERAKR.local) > Users, Right Click & Select New > Use
 
 ![image alt](https://github.com/Cyberakr21/4-homelab-active-directory--images-/blob/08cf7068f616513fd61cece564d16108bf112fd9/18%20right%20click%20on%20user%20after%20going%20into%20cyberakr.local.jpg)
 
+After clicking "User", you will prompted to create an account:
 
+![image alt](https://github.com/Cyberakr21/4-homelab-active-directory--images-/blob/e05687d707c85bac67aa79ab7520ce4b6f128c2d/19%20adding%20the%20answer%20for%20the%20windows%20machine%20for%20adding%20them%20to%20DC.jpg)
 
+    Configuration can we whatever you them to be
+    Click "Next" when you are done
+
+Setting up a password:
+
+![image alt](https://github.com/Cyberakr21/4-homelab-active-directory--images-/blob/e05687d707c85bac67aa79ab7520ce4b6f128c2d/20.1.jpg)
+
+       Set a password that never expires
+       Select "Next" to finish set up
+
+Use the configuration above to add more users that you want to simulate to be able to log in with them. 
+
+### Disabling the firewall for the Windows server 2025 since we are using pfSense as the firewall
+
+Go to the search bar to search"Windows Defender Firewall" to get this:
+
+![image alt](https://github.com/Cyberakr21/4-homelab-active-directory--images-/blob/e05687d707c85bac67aa79ab7520ce4b6f128c2d/22%20dissable%20defender%20because%20we%20using%20pfsense.jpg)
+
+    Select Turn Windows Defender Firewall on or off
+
+Turn off the firewall for all Networks:
+
+![image alt](https://github.com/Cyberakr21/4-homelab-active-directory--images-/blob/e05687d707c85bac67aa79ab7520ce4b6f128c2d/22.1%20dissable%20everything.jpg)
+
+    Click"Ok" when you are done 
+
+How to make pfsense the default gateway for the Domain Controller
+
+Navigate to **Control Panel** > **Network and Internet** > **Network Connections**
+Use the following configuration:
+
+![image alt](https://github.com/Cyberakr21/4-homelab-active-directory--images-/blob/e05687d707c85bac67aa79ab7520ce4b6f128c2d/23%20pf%20sense%20network%20for%20the%20clientnet.jpg)
+
+    The IP address used is the Network range of the Client Network
+    The subnet of this IP address is 192.168.2.X/24
+
+    The 192.168.2.1 is the IP address for pfSense
+    Click"OK" once everything is finalized
+
+NB: Go to the pfsense Web interface to configure DHCP so that pfsense knows that it will allocate the IP addresses itself, not the Domain Controller(DC), by adding the DC to pfsense:
+
+![image alt](https://github.com/Cyberakr21/4-homelab-active-directory--images-/blob/e05687d707c85bac67aa79ab7520ce4b6f128c2d/24%20go%20to%20pf%20web%20config%20to%20add%20our%20DC%20to%20our%20pf%20%20sense%20using%20this%20settings.jpg)
+
+![image alt](https://github.com/Cyberakr21/4-homelab-active-directory--images-/blob/e05687d707c85bac67aa79ab7520ce4b6f128c2d/25%20config%20so%20that%20pfsense%20knows%20that%20it%20will%20allcoate%20the%20ip%20itself%20not%20DC.jpg)
+
+    Set DNS Servers to "<Client Network IP addresss>"
+    Domain Name"<Your Domain e.g CYBERAKR.local>"
+    Save to finish the configuration
+    
 ## 6. Configuring Windows Desktops
 Windows desktop virtual machines are added to the domain to test user access and security policies. These machines simulate end-user systems in a corporate network.
 

@@ -735,7 +735,7 @@ This will be your welcome page if everything is done right:
 
 ## We will now be Installing the Universal Forwarder on the 2025 Windows Server to send logs to Splunk:**
 
-Before powering the Windows Server 2025, you will need to add a NAT network adapter to allow the internet to download the universal forwarder:
+Before powering the Windows Server 2025, you will need to add a NAT network adapter to allow the internet to download the universal forwarder. You can remove this adapter if you don't want to have your server to have internet access after you are done configuring the forwarder:
 
 ![image alt](https://github.com/Cyberakr21/6-homelab-Splunk-forwarder--images/blob/23eaa2ec94f1b861b8d4c6323ec310ccf22fa4db/1%20set%20up%20NAT%20interface%20to%20have%20access%20to%20get%20uni%20forwarder.jpg)
 

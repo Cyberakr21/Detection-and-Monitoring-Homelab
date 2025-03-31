@@ -715,7 +715,7 @@ Once that is done, you will receive your web configuration to access your Splunk
 
 Navigate to http://splunk:8000 in your browser
 
-**NB. You can set up your Splunk to boot up as your Sever boot up, too if you dont want to type "./start Splunk" everytime by using this command:**
+**NB. You can set up your Splunk to boot up as your Sever boot up, too, if you dont want to type "./start Splunk" every time by using this command:**
 
     Use this command on your terminal
     sudo./splunk enable boot-start
@@ -724,18 +724,166 @@ If you want to access Splunk from a different machine, can use this command to d
 
     sudo ipstables -A INPUT -p tcp --dport 8000 -s <IP address of the machine> -j ACCEPT
 
-**At this point, Splunk has been installed, all you need to do is visit the navigate to the web page and login:**
+**At this point, Splunk has been installed. All you need to do is visit the navigate to the web page and log in:**
 
     Visit http://splunk:8000
-    accept risk and login using the credential made when we configured Splunk
+    accept risk and log in using the credential made when we configured Splunk
 
 This will be your welcome page if everything is done right: 
 
 ![image alt](https://github.com/Cyberakr21/5-homelab-Splunk--images/blob/1e45f3005a0d432cb6c59e9e1663cd407da5c287/33%20splunk%20working.jpg)
 
-**We will now be Installing the Universal Forwarder on the 2025 Windows Server to send logs to splunk:**
+## We will now be Installing the Universal Forwarder on the 2025 Windows Server to send logs to Splunk:**
+
+Before powering the Windows Server 2025, you will need to add a NAT network adapter to allow the internet to download the universal forwarder:
+
+![image alt](https://github.com/Cyberakr21/6-homelab-Splunk-forwarder--images/blob/23eaa2ec94f1b861b8d4c6323ec310ccf22fa4db/1%20set%20up%20NAT%20interface%20to%20have%20access%20to%20get%20uni%20forwarder.jpg)
+
+Power on these machines: Windows Server, Splunk, and pfSense to configure the Splunk forwarder.
+
+[Click Here to Download the Universal Forwarder](https://www.splunk.com/en_us/download/universal-forwarder.html)
+
+**Steps to configure the forwarder:**
+
+Log in to your Splunk machine to configure Splunk forwarding so that Splunk can receive Data:
+
+![image alt](https://github.com/Cyberakr21/6-homelab-Splunk-forwarder--images/blob/23eaa2ec94f1b861b8d4c6323ec310ccf22fa4db/3%20log%20into%20your%20splunk%20to%20enable%20splunk%20to%20recieve.jpg)
+
+    Click "Setting"
+    Next, Click "Forwarding and Receiving"
+
+![image alt](https://github.com/Cyberakr21/6-homelab-Splunk-forwarder--images/blob/23eaa2ec94f1b861b8d4c6323ec310ccf22fa4db/4%20configure%20receiving.jpg)
+
+    Click "Configure receiving"
+
+![image alt](https://github.com/Cyberakr21/6-homelab-Splunk-forwarder--images/blob/23eaa2ec94f1b861b8d4c6323ec310ccf22fa4db/5%20click.jpg)
+
+    Click "New Receiving Port"
+
+![image alt](https://github.com/Cyberakr21/6-homelab-Splunk-forwarder--images/blob/23eaa2ec94f1b861b8d4c6323ec310ccf22fa4db/6%20use%20default%20splunk%20listening%20port.jpg)
+
+    Click "9997" This is Splunks default listening
+    Click"Save"
+
+Configure an index to store the Data from the forwarder on Splunk:
+
+![image alt](https://github.com/Cyberakr21/6-homelab-Splunk-forwarder--images/blob/23eaa2ec94f1b861b8d4c6323ec310ccf22fa4db/7%20next%2C%20create%20splunk%20index%20for%20th%20server.jpg)
+
+    Click "Indexes"
+
+![image alt](https://github.com/Cyberakr21/6-homelab-Splunk-forwarder--images/blob/23eaa2ec94f1b861b8d4c6323ec310ccf22fa4db/8%20click.jpg)
+
+    Click "New index"
 
 
+![image alt](https://github.com/Cyberakr21/6-homelab-Splunk-forwarder--images/blob/23eaa2ec94f1b861b8d4c6323ec310ccf22fa4db/9%20name%20the%20index%20and%20save%20without%20changing%20anything%20else.jpg)
+
+    Create an Index name
+    Click "Save"
+
+Once Splunk has been set up to receive, configure the Universal forwarder on Windows Server 2025:
+
+Search up the Universal forwarder on a browser 
+
+![image alt](https://github.com/Cyberakr21/6-homelab-Splunk-forwarder--images/blob/23eaa2ec94f1b861b8d4c6323ec310ccf22fa4db/11%20log%20in%20an%20download%20the%20forwarder.jpg)
+
+    Click "Download Now" Windows Server 2025
+
+Go to your download folder and open the forwarder installation file:
+
+![image alt](https://github.com/Cyberakr21/6-homelab-Splunk-forwarder--images/blob/23eaa2ec94f1b861b8d4c6323ec310ccf22fa4db/1.jpg)
+
+    Accept the agreement
+    Select on Premises Splunk
+    Click"Customize Options"
+
+![image alt](https://github.com/Cyberakr21/6-homelab-Splunk-forwarder--images/blob/23eaa2ec94f1b861b8d4c6323ec310ccf22fa4db/2.jpg)
+
+    Accept default 
+    Click"Next"
+
+![image alt](https://github.com/Cyberakr21/6-homelab-Splunk-forwarder--images/blob/23eaa2ec94f1b861b8d4c6323ec310ccf22fa4db/3%20click%20next.jpg)
+
+    Accept default
+    Click"Next"
+
+![image alt](https://github.com/Cyberakr21/6-homelab-Splunk-forwarder--images/blob/23eaa2ec94f1b861b8d4c6323ec310ccf22fa4db/4.jpg)
+
+    Choose local System
+    Click"Next"
+
+![image alt](https://github.com/Cyberakr21/6-homelab-Splunk-forwarder--images/blob/23eaa2ec94f1b861b8d4c6323ec310ccf22fa4db/5%20select%20what%20logs%20you%20want%20to%20monitor.jpg)
+
+    Select the Data that you want to be forwarded to Splunk
+    Click"Next"
+
+![image alt](https://github.com/Cyberakr21/6-homelab-Splunk-forwarder--images/blob/23eaa2ec94f1b861b8d4c6323ec310ccf22fa4db/6%20splunk%20name.jpg)
+
+    For username, use your Splunk username log in
+    Set a password of your choice
+
+**If you have Ubuntu GUI installed on the Ubuntu server, follow this to get your IP address to your Splunk instance:**
+
+![image alt](https://github.com/Cyberakr21/6-homelab-Splunk-forwarder--images/blob/23eaa2ec94f1b861b8d4c6323ec310ccf22fa4db/16%20get%20your%20ip%20from%20here.jpg)
+
+Deployment server:
+
+![image alt](https://github.com/Cyberakr21/6-homelab-Splunk-forwarder--images/blob/23eaa2ec94f1b861b8d4c6323ec310ccf22fa4db/7.jpg)
+
+    The hostname or IP will be your Splunk's IP address or hostname
+    Use default port 8089
+    Click"Next"
+
+![image alt](https://github.com/Cyberakr21/6-homelab-Splunk-forwarder--images/blob/23eaa2ec94f1b861b8d4c6323ec310ccf22fa4db/8.jpg)
+
+    The hostname or IP will be your Splunk's IP address or hostname
+    Use default port 9997
+    Click"Next"
+    Click"Install" to go to the next menu
+    Click"Finish" to exit the installation
+
+**We will move to Splunk to finish the Splunk forwarder setup:**
+
+![image alt](https://github.com/Cyberakr21/6-homelab-Splunk-forwarder--images/blob/23eaa2ec94f1b861b8d4c6323ec310ccf22fa4db/20%20go%20to%20splunk%20and%20select%20add%20data.jpg)
+
+    When you are in Splunk, Click"Setting"
+    Click"Add Data"
+
+![image alt](https://github.com/Cyberakr21/6-homelab-Splunk-forwarder--images/blob/23eaa2ec94f1b861b8d4c6323ec310ccf22fa4db/21%20select%20forward.jpg)
+
+    Click"Forward"
+
+![image alt](https://github.com/Cyberakr21/6-homelab-Splunk-forwarder--images/blob/23eaa2ec94f1b861b8d4c6323ec310ccf22fa4db/23%20click%20on%20the%20DC%20on%20avalible%20to%20that%20it%20appers%20on%20selected%20and%20type%20new%20server%20class.jpg)
+
+    Double Click on "WINDOWS Cyberakr-DC"< This will be different since it's your domain name>
+    On New Server Class Name: create a name like "DC" personal preference
+    Click"Next"
+
+![image alt](https://github.com/Cyberakr21/6-homelab-Splunk-forwarder--images/blob/23eaa2ec94f1b861b8d4c6323ec310ccf22fa4db/24%20select%20what%20you%20want%20to%20monitor.jpg)
+
+    Click"Local Event Logs"
+    Select the logs you want to receive by clicking on them
+    Click"Next" when you are done
+
+![image alt](https://github.com/Cyberakr21/6-homelab-Splunk-forwarder--images/blob/23eaa2ec94f1b861b8d4c6323ec310ccf22fa4db/25%20where%20the%20logs%20will%20be%20stored.jpg)
+
+    Select the Index you created earlier by pressing Default to find it
+    Click"Review"
+
+![image alt](https://github.com/Cyberakr21/6-homelab-Splunk-forwarder--images/blob/23eaa2ec94f1b861b8d4c6323ec310ccf22fa4db/26%20your%20config.jpg)
+
+    The configs that you will see, depending on what you filled out
+    Click"Submit"
+
+![image alt](https://github.com/Cyberakr21/6-homelab-Splunk-forwarder--images/blob/23eaa2ec94f1b861b8d4c6323ec310ccf22fa4db/27%20select%20start%20seaching.jpg)
+
+    Click"Start Searching" This will let you see the logs received from your domain controller
+
+**This should be your screen if everything has been configured correctly:**
+
+![image alt](https://github.com/Cyberakr21/6-homelab-Splunk-forwarder--images/blob/23eaa2ec94f1b861b8d4c6323ec310ccf22fa4db/28%20At%20this%20point%20you%20have%20done%20setting%20up%20the%20forwarder.jpg)
+
+This is the end of how to reproduce the lab. I will add more things later, so keep tuned.
 
 ## How to Use This Repository
 Each section of the lab setup is documented with step-by-step instructions, screenshots, and configuration files. Follow the guides to replicate the setup in your own environment.
@@ -743,3 +891,4 @@ Each section of the lab setup is documented with step-by-step instructions, scre
 ## Future Enhancements
 - Adding more attack scenarios and detection use cases.
 - Expanding the lab to include cloud-based components.
+- pfsense firewall rules effects.
